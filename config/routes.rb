@@ -1,8 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
-  get 'messages/index'
+  root to: "rooms#index"
   resources :users, only: [:edit, :update]
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-
-  root to: "messages#index"  
+  resources :rooms, only: [:new, :create]
 end
